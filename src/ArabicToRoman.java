@@ -30,10 +30,10 @@ class ArabicToRoman {
         String res = "";
         int n = a;
         while (n > 0) {
-            for (int i = 0; i < arabics.length; i++) {
-                if (n < arabics[i]) {
-                    n -= arabics[i - 1];
-                    res += romans[i - 1];
+            for (int i = arabics.length - 1; i >= 0; i--) {
+                if (n >= arabics[i]) {
+                    n -= arabics[i];
+                    res += romans[i];
                     break;
                 }
             }
