@@ -25,19 +25,19 @@ class ArabicToRoman {
     }
 
     static String intToRoman(int a) {
-        String romans[] = {"I", "IV", "V", "IX", "X", "L", "C"};
-        int arabics[] = {1, 4, 5, 9, 10, 50, 100};
-        String res = "";
+        String romans[] = {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C"};
+        int arabics[] = {1, 4, 5, 9, 10, 40, 50, 90, 100};
+        StringBuilder res = new StringBuilder();
         int n = a;
+        int i = arabics.length - 1;
         while (n > 0) {
-            for (int i = arabics.length - 1; i >= 0; i--) {
-                if (n >= arabics[i]) {
-                    n -= arabics[i];
-                    res += romans[i];
-                    break;
-                }
+            if (n >= arabics[i]) {
+                res.append(romans[i]);
+                n -= arabics[i];
+            } else {
+                i--;
             }
         }
-        return res;
+        return res.toString();
     }
 }

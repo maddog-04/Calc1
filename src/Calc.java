@@ -14,12 +14,18 @@ class Calc {
         try {
             a = Integer.parseInt(split[0]); // из нулевого индекса строки возвращает число
         } catch (Exception e) {
+            if (split[0].length() > 3 && split[0].equals("IIII")) {
+                throw new Exception("Неккоректное число");
+            }
             a = ArabicToRoman.romanToInt(split[0]);
             isArabicResult = true;
         }
         try {
             b = Integer.parseInt(split[2]);
         } catch (Exception e) {
+            if (split[2].length() > 3 && split[2].equals("IIII")) {
+                throw new Exception("Неккоректное число");
+            }
             b = ArabicToRoman.romanToInt(split[2]);
             isArabicResult2 = true;
         }
